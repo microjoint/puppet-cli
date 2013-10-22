@@ -5,15 +5,15 @@ class cli::bash (
   $umask    = cli::params::umask,
 ) inherits cli::params {
   package { 'bash-completion': ensure => latest }
-  package { 'fortune-mod-hitchhiker': ensure => latest }
+  package { 'fortune-mod': ensure => latest }
   package { 'ponysay': ensure => latest }
 
   file { '/etc/bash.bashrc':
     ensure   => 'file',
-    content  => 'puppet:///cli/bash.bashrc',
+    source   => 'puppet:///modules/cli/bash.bashrc',
   }
   file { '/etc/bash.bash_logout':
     ensure   => 'file',
-    content  => 'puppet:///cli/bash.bash_logout',
+    source   => 'puppet:///modules/cli/bash.bash_logout',
   }
 }
