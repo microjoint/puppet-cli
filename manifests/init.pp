@@ -5,13 +5,22 @@ class cli (
   $umask                    = $cli::params::umask,
   $sudo_grp_with_passwd     = $cli::params::group_with_passwd,
   $sudo_grp_without_passwd  = $cli::params::group_without_passwd,
-  $bash                     = $cli::params::path,
+  $bash                     = $cli::params::bash,
   $bash_config              = $cli::params::bash_config,
 ) inherits cli::params {
 
-    include '::cli::install'
-    include '::cli::config'
+  validate_string($editor)
+  validate_string($path)
+  validate_string($visual)
+  validate_string($umask)
+  validate_string($sudo_grp_with_passwd)
+  validate_string($sudo_grp_without_passwd)
+  validate_bool($bash)
+  validate_string($bash_config) # i may be a hash ???
 
-    Class['::cli::install'] -> Class['::cli::root_sudo'] -> Class['::cli::config']
+  include '::cli::install'
+  include '::cli::config'
+
+  Class['::cli::install'] -> Class['::cli::root_sudo'] -> Class['::cli::config']
 }
 
