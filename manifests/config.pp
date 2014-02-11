@@ -5,7 +5,7 @@ class cli::config inherits cli {
     mode  => '0644',
   }
   if $bash == true {
-    create_resources(file, $bash_config,$file_defaults)
+    create_resources(file, $bash_config, $file_defaults)
   }
   # no PC beep
   file {'/etc/modprobe.d/nobeep.conf':
