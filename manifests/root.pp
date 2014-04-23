@@ -1,4 +1,4 @@
-class cli::root_sudo inherits cli {
+class cli::root inherits cli {
   user {'root':
     ensure      => present,
     comment     => 'Root account',

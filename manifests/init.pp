@@ -21,6 +21,6 @@ class cli (
   include '::cli::install'
   include '::cli::config'
 
-  Class['::cli::install'] -> Class['::cli::root_sudo'] -> Class['::cli::config']
+  Class['::cli::install'] -> Class['::cli::sudo'] -> Class['::cli::config']
 }
 
