@@ -11,12 +11,12 @@ class cli::params {
     '/etc/bash.bashrc' =>
     {
       ensure  => file,
-      content => template('bash/bash.bashrc.erb'),
+      source  => 'etc/bash.bashrc.erb',
     },
     '/etc/bash.bash_logout' =>
     {
       ensure                => file,
-      source                => 'puppet:///modules/bash/bash.bash_logout',
+      source                => 'puppet:///modules/etc/bash.bash_logout',
     }
   }
 }
