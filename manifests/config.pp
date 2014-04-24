@@ -11,4 +11,5 @@ class cli::config inherits cli {
   file {'/etc/modprobe.d/nobeep.conf':
     ensure  => file,
     content => 'blacklist pcspkr',
+  }	
 }
