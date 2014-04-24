@@ -16,7 +16,7 @@ class cli (
   validate_string($sudo_grp_with_passwd)
   validate_string($sudo_grp_without_passwd)
   validate_bool($bash)
-  validate_string($bash_config) # i may be a hash ???
+  validate_hash($bash_config) # i may be a hash ???
 
   include '::cli::install'
   include '::cli::config'
