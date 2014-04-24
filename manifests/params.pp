@@ -8,13 +8,15 @@ class cli::params {
   $bash                   = true
   $bash_config            =
   {
-    { '/etc/bash.bashrc':
+    '/etc/bash.bashrc' =>
+    {
       ensure  => file,
       content => template('bash/bash.bashrc.erb'),
     },
-    { '/etc/bash.bash_logout':
-      ensure => file,
-      source => 'puppet:///modules/bash/bash.bash_logout',
+    '/etc/bash.bash_logout' =>
+    {
+      ensure                => file,
+      source                => 'puppet:///modules/bash/bash.bash_logout',
     }
   }
 }
