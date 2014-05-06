@@ -11,12 +11,17 @@ class cli::params {
     '/etc/bash.bashrc' =>
     {
       ensure  => file,
-      source  => 'etc/bash.bashrc.erb',
+      source  => 'puppet:///modules/etc/bash.bashrc.erb',
     },
     '/etc/bash.bash_logout' =>
     {
-      ensure                => file,
-      source                => 'puppet:///modules/etc/bash.bash_logout',
+      ensure  => file,
+      source  => 'puppet:///modules/etc/bash.bash_logout',
     }
+  }
+  $groups        	=
+  {
+    'root' => { ensure => present },
+    'adm' => { ensure => present },
   }
 }

@@ -11,6 +11,9 @@ class cli::root inherits cli {
     # password    => template('private/base/root/password'),
     require     => Group['root', 'adm']
   }
+
+  create_resources( group, $groups )
+
   file {'/root':
     ensure => directory,
     mode   => 0600,
